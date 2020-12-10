@@ -1,13 +1,12 @@
-inp = open("input3.txt")
 #считать строку ввода, разделить и преобразовать к числам
-n, q = map(int,inp.readline().split())
+n, q = map(int,input().split())
 
 #массив для пар (директор, подчиненный)
 eq=[]
 
 for i in range(0, n-1):
     #считать индекс директора и подчиненного
-    a, b = map(int, inp.readline().split())
+    a, b = map(int, input().split())
     #соотнести индексу работника номер руководителя
     eq.append((a, b))
 
@@ -72,10 +71,10 @@ while len(eq) != 0:
             break
 
 #прочитать запросы    
-for q in [*map(int, inp.readline().split())]:
+for q in [*map(int, input().split())]:
     #для директора всегда известный вывод
     if q==1:
         print(1)
     else:
         d, _ = depth(tree, q, 0)
-        print(q, d, count(tree, d, 0))
+        print(count(tree, d, 0))
